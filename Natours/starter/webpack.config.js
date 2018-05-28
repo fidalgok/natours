@@ -21,7 +21,7 @@ module.exports = env => ({
       },
       {
         test: /\.css$/,
-        use: [miniCssExtractPlugin.loader, 'css-loader'],
+        use: [/*miniCssExtractPlugin.loader*/ 'style-loader', 'css-loader'],
       },
       {
         test: /\.(jpe?g|png|gif)$/,
@@ -67,6 +67,8 @@ module.exports = env => ({
       template: './index.html',
       favicon: './img/favicon.png',
     }),
-    new miniCssExtractPlugin(),
+    new miniCssExtractPlugin({
+      filename: '[name].css',
+    }),
   ],
 });

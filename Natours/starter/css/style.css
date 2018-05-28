@@ -140,7 +140,7 @@ body {
   color: #777;
 }
 /**
-  crerating a psuedo element
+  creating a psuedo element
 */
 .btn::after {
   content: '';
