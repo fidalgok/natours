@@ -1,6 +1,6 @@
 .row {
   max-width: $grid-width;
-  background-color: #eee;
+  //background-color: #eee;
   margin: 0 auto;
   //selects everything except
   //the last child
@@ -12,14 +12,14 @@
 }
 
 [class*='col-'] {
-  background-color: #00d2ff;
-  background: linear-gradient(90deg, #00d0ffda 40%, #3a47d5da 100%);
+  // background-color: #00d2ff;
+  // background: linear-gradient(90deg, #00d0ffda 40%, #3a47d5da 100%);
   float: left;
   &:not(:last-child) {
     margin-right: $gutter-horizontal;
   }
 }
-
+//in order to use scss variables inside of calc you need to wrap them with #{} first
 .col-1-of-2 {
   width: calc((100% - #{$gutter-horizontal}) / 2);
 }
