@@ -20,8 +20,15 @@ module.exports = env => ({
         use: ['html-loader'],
       },
       {
-        test: /\.css$/,
-        use: [/*miniCssExtractPlugin.loader*/ 'style-loader', 'css-loader'],
+        test: /\.scss$/,
+        use: [
+          //fallback to style-loader in dev
+          process.env.NODE_ENV === 'production'
+            ? miniCssExtractPlugin.loader
+            : 'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.(jpe?g|png|gif)$/,
