@@ -1,0 +1,183 @@
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  //since we absolutely positioned the child element we need to add the same height here because the height would have been collapsed otherwise
+  height: 50rem;
+
+  &__side {
+    height: 50rem;
+    font-size: 2rem;
+    transition: all 0.8s ease;
+    border-radius: 2px;
+    box-shadow: $box-shadow;
+    //allows front and back cards to stack on top of each other
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden; //gets rid of weird animation jank
+    overflow: hidden; //allows the border to remain border radius with the background image
+    &--front {
+      background-color: $color-white;
+    }
+    &--back {
+      background-color: lightseagreen;
+      color: $color-white;
+      transform: rotateY(180deg);
+      z-index: -1;
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $light-green,
+          $dark-green
+        );
+      }
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    //this alone make a pretty flat rotate we need to add perspective to the parent element to make it appear like it's rotating out of the page towards you
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0deg);
+    z-index: 1;
+  }
+
+  //front-side styling
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    //the clip messes with border radius
+    //manually reset here
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        ),
+        url(../img/nat-5.jpg);
+    }
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          $light-green,
+          $dark-green
+        ),
+        url(../img/nat-6.jpg);
+    }
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        ),
+        url(../img/nat-7.jpg);
+    }
+  }
+
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: $color-white;
+    text-align: right;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-secondary-light, 0.85),
+        rgba($color-secondary-dark, 0.85)
+      );
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($light-green, 0.85),
+        rgba($dark-green, 0.85)
+      );
+    }
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-tertiary-light, 0.85),
+        rgba($color-tertiary-dark, 0.85)
+      );
+    }
+  }
+
+  &__details {
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+      text-align: center;
+
+      li {
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light-2;
+        }
+      }
+    }
+  }
+
+  //backside styling
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+  }
+
+  &__price-box {
+    margin-bottom: 8rem;
+    p {
+      margin: 0;
+    }
+    &:first-child {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+    }
+  }
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
+  }
+}
