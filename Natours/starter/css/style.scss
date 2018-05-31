@@ -2,6 +2,8 @@
 @import 'abstracts/mixins';
 @import 'abstracts/variables';
 
+@import 'vendor/icon-font';
+
 @import 'base/animations';
 @import 'base/typography';
 @import 'base/utilities';
@@ -9,6 +11,7 @@
 
 @import 'components/button';
 @import 'components/composition';
+@import 'components/feature-box';
 
 @import 'layouts/grid';
 @import 'layouts/header';

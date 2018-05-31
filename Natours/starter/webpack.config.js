@@ -31,6 +31,18 @@ module.exports = env => ({
         ],
       },
       {
+        test: /\.(eot|svg|ttf|woff)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name]-[hash:7].[ext]',
+              outputPath: 'fonts/',
+            },
+          },
+        ],
+      },
+      {
         test: /\.(jpe?g|png|gif)$/,
         use: [
           {

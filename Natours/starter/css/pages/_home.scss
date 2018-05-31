@@ -3,3 +3,22 @@
   padding: 25rem 0;
   margin-top: -20vh;
 }
+
+.section-features {
+  padding: 20rem 0;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($light-green, 0.8),
+      rgba($dark-green, 0.8)
+    ),
+    url(../img/nat-4.jpg);
+  background-size: cover;
+  //alternate way to get a diagonal crop to
+  //your bgimages/gradients/etc.
+  transform: skewY(-7deg);
+  margin-top: -7.2rem;
+  //"un"skews the child elements of the container
+  & > * {
+    transform: skewY(7deg);
+  }
+}

@@ -69,10 +69,16 @@
     border-bottom: 1px solid $dark-green;
     padding: 5px;
     transition: all 0.2s;
+    align-self: flex-start;
   }
 
   &:hover {
     background-color: $dark-green;
+    background-image: linear-gradient(
+      to right,
+      rgba($dark-green, 0.8),
+      rgba($light-green, 0.8)
+    );
     color: $color-white;
     box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
     transform: translate(0 -2px);
