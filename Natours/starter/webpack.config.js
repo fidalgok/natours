@@ -17,7 +17,21 @@ module.exports = env => ({
     rules: [
       {
         test: /\.html$/,
-        use: ['html-loader'],
+        use: [
+          // {
+          //   loader: 'file-loader',
+          //   // options: {
+          //   //   name: '[path][name].[ext]',
+          //   // },
+          // },
+          // 'extract-loader',
+          {
+            loader: 'html-loader',
+            options: {
+              attrs: [':src', 'source:src'],
+            },
+          },
+        ],
       },
       {
         test: /\.scss$/,
@@ -38,6 +52,18 @@ module.exports = env => ({
             options: {
               name: '[name]-[hash:7].[ext]',
               outputPath: 'fonts/',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(mp4|webm)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'images/',
             },
           },
         ],

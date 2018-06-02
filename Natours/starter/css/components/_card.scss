@@ -16,6 +16,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden; //gets rid of weird animation jank
     overflow: hidden; //allows the border to remain border radius with the background image
     &--front {
@@ -25,7 +26,7 @@
       background-color: lightseagreen;
       color: $color-white;
       transform: rotateY(180deg);
-      z-index: -1;
+      //z-index: -1;
       &-1 {
         background-image: linear-gradient(
           to right bottom,
@@ -57,7 +58,7 @@
 
   &:hover &__side--back {
     transform: rotateY(0deg);
-    z-index: 1;
+    //z-index: 1;
   }
 
   //front-side styling
@@ -65,8 +66,9 @@
     background-size: cover;
     height: 23rem;
     background-blend-mode: screen;
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
     //the clip messes with border radius
     //manually reset here
     border-top-left-radius: 2px;

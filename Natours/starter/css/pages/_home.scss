@@ -6,6 +6,32 @@
 
 .section-features {
   padding: 20rem 0;
+  background-image: -webkit-gradient(
+      linear,
+      left top,
+      right bottom,
+      from(rgba($light-green, 0.8)),
+      to(rgba($dark-green, 0.8))
+    ),
+    url(../img/nat-4.jpg);
+  background-image: -webkit-linear-gradient(
+      left top,
+      rgba($light-green, 0.8),
+      rgba($dark-green, 0.8)
+    ),
+    url(../img/nat-4.jpg);
+  background-image: -o-linear-gradient(
+      left top,
+      rgba($light-green, 0.8),
+      rgba($dark-green, 0.8)
+    ),
+    url(../img/nat-4.jpg);
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($light-green, 0.8),
+      rgba($dark-green, 0.8)
+    ),
+    url(../img/nat-4.jpg);
   background-image: linear-gradient(
       to right bottom,
       rgba($light-green, 0.8),
@@ -27,4 +53,9 @@
   background-color: $color-grey-light-1;
   padding: 25rem 0 12rem;
   margin-top: -20vh;
+}
+
+.section-stories {
+  padding: 15rem 0;
+  position: relative;
 }
