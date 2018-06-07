@@ -9,19 +9,19 @@
   //the last child
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
+
+    @include respond(tab-port) {
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  @include respond(tab-port) {
+    max-width: 62rem;
   }
 
   @include clearfix;
 }
 
-[class*='col-'] {
-  // background-color: #00d2ff;
-  // background: linear-gradient(90deg, #00d0ffda 40%, #3a47d5da 95%);
-  float: left;
-  &:not(:last-child) {
-    margin-right: $gutter-horizontal;
-  }
-}
 //in order to use scss variables inside of calc you need to wrap them with #{} first
 .col-1-of-2 {
   width: calc((95% - #{$gutter-horizontal}) / 2);
@@ -51,6 +51,24 @@
   width: calc(
     3 * (95% - 3 * #{$gutter-horizontal}) / 4 + #{$gutter-horizontal * 2}
   );
+}
+
+[class*='col-'] {
+  // background-color: #00d2ff;
+  // background: linear-gradient(90deg, #00d0ffda 40%, #3a47d5da 95%);
+  float: left;
+  &:not(:last-child) {
+    margin-right: $gutter-horizontal;
+  }
+
+  @include respond(tab-port) {
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: 5rem;
+    }
+  }
 }
 
 //flexbox support for equal height columns

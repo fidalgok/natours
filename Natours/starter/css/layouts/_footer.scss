@@ -3,13 +3,21 @@
   padding: 10rem 0;
   font-size: 1.4rem;
 
+  @include respond(tab-port) {
+    padding: 8rem 0;
+  }
+
   &__logo-box {
     text-align: center;
     margin-bottom: 8rem;
+
+    @include respond(tab-port) {
+      margin-bottom: 6rem;
+    }
   }
 
   &__logo {
-    width: 18rem;
+    width: 15rem;
   }
 
   &__navigation {
@@ -17,6 +25,12 @@
     padding-top: 2rem;
     display: inline-block;
     align-self: flex-start;
+
+    @include respond(tab-port) {
+      width: 100%;
+      align-self: center;
+      text-align: center;
+    }
   }
 
   &__list {
@@ -55,5 +69,12 @@
     width: 80%;
     float: right;
     align-self: flex-end;
+
+    @include respond(tab-port) {
+      width: 100%;
+      align-self: center;
+      text-align: center;
+      padding: 2rem 2rem 0;
+    }
   }
 }

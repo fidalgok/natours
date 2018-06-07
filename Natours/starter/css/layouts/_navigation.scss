@@ -14,6 +14,11 @@
     box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
     text-align: center;
     cursor: pointer;
+
+    @include respond(tab-port) {
+      top: 2rem;
+      right: 2rem;
+    }
   }
   &__background {
     height: 6rem;
@@ -27,6 +32,11 @@
     -webkit-transition: all 0.8s cubic-bezier(0.86, 0, 0.07, 1);
     transition: all 0.8s cubic-bezier(0.86, 0, 0.07, 1);
 
+    @include respond(tab-port) {
+      top: 2.5rem;
+      right: 2.5rem;
+    }
+
     //transform: scale(80);
   }
   &__nav {
@@ -34,7 +44,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1500;
+    z-index: -1;
     opacity: 0;
     width: 0; // hide navigation
     -webkit-transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -89,6 +99,7 @@
   }
   &__checkbox:checked ~ &__nav {
     opacity: 1;
+    z-index: 1500;
     width: 100%;
   }
 

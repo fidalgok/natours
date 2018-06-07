@@ -10,6 +10,11 @@
   transform: skewX(-12deg);
   position: relative;
 
+  @include respond(tab-port) {
+    transform: skewX(0deg);
+    padding: 4rem 3rem 6rem 3rem;
+  }
+
   &:not(:last-child) {
     margin-bottom: 8rem;
   }
@@ -19,11 +24,23 @@
     height: 15rem;
     background-color: $color-secondary-dark;
     float: left;
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
     transform: translate(-3rem, 0) skewX(12deg);
+    border-radius: 50%;
+    overflow: hidden;
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+      border-radius: none;
+    }
+
+    @include respond(tab-port) {
+      transform: translate(0, 0) skewX(0deg);
+      float: none;
+      margin: 0 auto 3rem;
+    }
   }
 
   &__image {
@@ -36,6 +53,11 @@
 
   &__text {
     transform: skewX(12deg);
+
+    @include respond(tab-port) {
+      transform: skewX(0deg);
+      text-align: center;
+    }
   }
 
   &__caption {

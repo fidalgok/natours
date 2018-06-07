@@ -10,6 +10,12 @@
   visibility: hidden;
   transition: all 0.3s;
 
+  @supports (backdrop-filter: blur(3px)) or (-webkit-backdrop-filter: blur(2px)) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-black, 0.2);
+  }
+
   &:target {
     opacity: 1;
     visibility: visible;
@@ -37,6 +43,10 @@
   &:target &__content {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
+
+    @include respond(phone) {
+      transform: translate(0, -50%) scale(1);
+    }
   }
 
   &__content {
@@ -49,6 +59,15 @@
     //opacity: 0;
     transform: translate(-50%, -50%) scale(0.1);
     transition: all 0.4s 0.2s;
+
+    @include respond(tab-land) {
+      display: block;
+    }
+
+    @include respond(phone) {
+      width: 100%;
+      left: 0;
+    }
   }
 
   &__left {
@@ -57,16 +76,30 @@
     //content more easily
     display: table-cell;
     overflow: hidden;
+
+    @include respond(tab-land) {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 50% 50%;
+    }
   }
   &__right {
     width: 66.66%;
     display: table-cell;
     vertical-align: middle;
     padding: 3rem 5rem;
+
+    @include respond(tab-land) {
+      width: 100%;
+      display: inline-block;
+    }
   }
   &__photo {
     display: block;
     width: 100%;
+    @include respond(tab-land) {
+      align-self: stretch;
+    }
   }
   &__text {
     font-size: 1.4rem;
@@ -85,5 +118,10 @@
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto;
+
+    @include respond(tab-port) {
+      hyphens: none;
+      column-count: 1;
+    }
   }
 }
